@@ -1,0 +1,50 @@
+--tamper=
+--cookie=""
+--random-agent
+
+*🔸️METHODS TEMPER*
+apostrophemask          --> Mengubah tanda petik jadi bentuk lain | bypass filter quote
+apostrophenullencode    --> Encode ' jadi %00' | hindari filter sederhana
+appendnullbyte          --> Tambah null byte (%00) di akhir | bypass parsing backend
+base64encode            --> Encode payload ke base64 | bypass WAF berbasis pattern
+between                 --> Ganti operator dengan BETWEEN | hindari filter simbol
+bluecoat                --> Obfuscation khusus bypass BlueCoat WAF
+charencode              --> Encode karakter jadi %xx | hindari deteksi keyword
+chardoubleencode        --> Double encode (%2527 dll) | bypass filter decode sekali
+charunicodeencode       --> Encode ke unicode (%uXXXX) | bypass filter biasa
+concat2concatws         --> Ubah CONCAT ke CONCAT_WS | hindari blacklist fungsi
+equaltolike             --> Ganti = jadi LIKE | bypass filter operator
+escapequotes            --> Escape tanda petik | hindari syntax error/filter
+greatest                --> Ganti kondisi pakai GREATEST | obfuscate logic
+halfversionedmorekeywords --> Tambah komentar /*! */ di keyword | bypass WAF MySQL
+htmlencode              --> Encode ke HTML entity | bypass filter input web
+ifnull2casewhenisnull   --> Ganti IFNULL ke CASE WHEN | hindari blacklist
+ifnull2ifisnull         --> Ganti IFNULL ke IF ISNULL | variasi bypass
+lowercase               --> Ubah semua jadi huruf kecil | bypass case-sensitive filter
+modsecurityversioned    --> Gunakan komentar /*! */ versi MySQL | bypass ModSecurity
+modsecurityzeroversioned--> Versi khusus /*!00000 */ | bypass rule ketat
+multiplespaces          --> Tambah banyak spasi | ganggu regex filter
+nonrecursivereplacement --> Replace keyword tanpa rekursi | bypass filter berulang
+overlongutf8            --> Encode UTF-8 panjang | bypass decoder lemah
+overlongutf8more        --> Versi lebih kompleks dari atas | bypass WAF lanjut
+percentage              --> Tambah % di payload | obfuscation tambahan
+randomcase              --> Acak huruf besar kecil | bypass filter case
+randomcomments          --> Sisip komentar acak | pecah signature WAF
+securesphere            --> Bypass Imperva SecureSphere WAF
+space2comment           --> Ganti spasi jadi /**/ | bypass filter spasi
+space2dash              --> Ganti spasi jadi -- comment | obfuscation
+space2hash              --> Ganti spasi jadi # | MySQL comment bypass
+space2morehash          --> Variasi # lebih kompleks | hindari regex
+space2mssqlblank        --> Spasi diganti karakter blank MSSQL | bypass spesifik
+space2mysqldash         --> Spasi jadi -- (MySQL) | bypass filter
+space2plus              --> Spasi jadi + | bypass encoding URL
+space2randomblank       --> Spasi jadi karakter blank acak | obfuscation
+sp_password             --> Tambah sp_password (MSSQL trick) | hindari logging
+symboliclogical         --> Ganti AND/OR dengan simbol | bypass keyword filter
+unionalltounion         --> UNION ALL jadi UNION | bypass filter spesifik
+unmagicquotes           --> Bypass magic_quotes PHP lama | hindari escaping
+uppercase               --> Ubah jadi huruf besar | bypass filter case
+varnish                 --> Bypass cache/proxy Varnish
+versionedkeywords       --> Keyword dalam /*! */ | bypass MySQL filter
+versionedmorekeywords   --> Versi lebih banyak keyword | obfuscation kuat
+xforwardedfor           --> Tambah header X-Forwarded-For | spoof IP bypass
